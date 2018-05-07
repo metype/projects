@@ -5,8 +5,7 @@ var canvas = document.getElementById('canvas');
         var createScene = function(){
             var scene = new BABYLON.Scene(engine);
             scene.clearColor = new BABYLON.Color3.White();
-            var camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0,
-            0,-10), scene);
+            var camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0,0,-10), scene);
             camera.setTarget(BABYLON.Vector3.Zero());
             camera.attachControl(canvas,true);
             camera.keysUp.push(87);    //W
