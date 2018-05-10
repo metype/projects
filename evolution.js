@@ -1,4 +1,3 @@
-
         var canvas = document.getElementById("renderCanvas");
         var engine = new BABYLON.Engine(canvas, true);
 
@@ -25,9 +24,9 @@
         
             // Add lights to the scene
            	var light = new BABYLON.HemisphericLight("hemiLight", new BABYLON.Vector3(-1, 1, 0), scene);
-        	light.diffuse = new BABYLON.Color3(1, 0, 0);
-        	light.specular = new BABYLON.Color3(0, 1, 0);
-        	light.groundColor = new BABYLON.Color3(0, 0, 1);
+        	light.diffuse = new BABYLON.Color3(0, 1, 0);
+        	light.specular = new BABYLON.Color3(0, 0, 0);
+        	light.groundColor = new BABYLON.Color3(0, 0, 0);
             
             // Add colors
         
@@ -46,6 +45,10 @@
         
             var YMat = new BABYLON.StandardMaterial("greenmatMat", scene);
         	YMat.ambientColor = new BABYLON.Color3(0, 0, 0);
+
+            var grassMaterial = new BABYLON.StandardMaterial(name + "bawl", scene);
+            var grassTexture = new BABYLON.GrassProceduralTexture(name + "textbawl", 256, scene);
+            grassMaterial.ambientTexture = grassTexture;
         
             // This is where you create and manipulate meshes
             var wall = BABYLON.MeshBuilder.CreatePlane("wall1", {height: 5, width: 40, depth: 0.5}, scene);
@@ -58,7 +61,7 @@
         
             // Tell the stuff where to go and how to look and collisions and stuff
         
-            wall.material = greenMat
+            wall.material = grassMaterial
             wall2.material = blueMat
             wall3.material = redMat
             wall4.material = PMat
